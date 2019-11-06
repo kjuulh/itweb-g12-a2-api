@@ -11,6 +11,9 @@ export default class Config {
       ? 'mongodb+srv://hermansenadmin:Blizzar1@itweb-g12-cbwzt.gcp.mongodb.net/itweb-g12'
       : 'mongodb://localhost:27017/express'
 
+  public static secret =
+    process.env.NODE_ENV !== 'remote' ? '{"secret": "abc123"}' : ''
+
   public static globFiles(location: string): string[] {
     return union([], sync(location))
   }

@@ -9,6 +9,7 @@ export default class WorkoutRoute {
       .post(workoutsController.create)
     app
       .route('/workouts/:workoutId')
+      .get(workoutsController.getById)
       .put(workoutsController.update)
       .delete(workoutsController.delete)
   }

@@ -12,6 +12,11 @@ const jwtMiddleware = () => {
       { url: pathToRegexp('/workouts'), methods: ['GET'] },
       { url: pathToRegexp('/workouts/:workoutId'), methods: ['GET'] },
       { url: pathToRegexp('/users/id/:userId'), methods: ['GET'] },
+      { url: pathToRegexp('/workouts/:workoutId/exercises'), methods: ['GET'] },
+      {
+        url: pathToRegexp('/workouts/:workoutId/exercises/exerciseId'),
+        methods: ['GET'],
+      },
     ],
   })
 }

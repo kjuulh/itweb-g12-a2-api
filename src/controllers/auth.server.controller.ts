@@ -28,7 +28,7 @@ export default class AuthenticationController {
             { sub: user._id },
             JSON.parse(Config.secret).secret
           )
-          res.status(200).json({ token })
+          res.status(200).json({ id: user._id, token })
         } else {
           res.status(400).json({ status: 'incorrect email or password' })
         }

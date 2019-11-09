@@ -50,6 +50,7 @@ export default class ExercisesController {
   }
 
   public create(req: Request, res: Response, next: Function): void {
+    console.log('Called!!!')
     const { workoutId } = req.params
     Workout.findOne({ _id: workoutId })
       .then(workout => {

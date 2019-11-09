@@ -1,9 +1,9 @@
 import * as jwt from 'express-jwt'
 import * as pathToRegexp from 'path-to-regexp'
-import Config from '../config/config'
+import Config from './../config/config'
 
 const jwtMiddleware = () => {
-  const { secret } = JSON.parse(Config.secret)
+  const secret = '123123123123123123123'
   return jwt({ secret }).unless({
     path: [
       { url: pathToRegexp('/authenticate'), methods: ['POST'] },

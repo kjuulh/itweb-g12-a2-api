@@ -14,8 +14,11 @@ export default function() {
 
   const corsOptions = {
     origin: (origin, callback) => {
-      const isWhitelisted = originsWhitelist.indexOf(origin) !== -1
-      callback(null, isWhitelisted)
+      if (originsWhitelist.indexOf(origin) !== -1 || !origin) {
+        callback(null, true)
+      } else {
+        callback(new Error('Not Allowed by CORS'))
+      }
     },
     credentials: true,
   }

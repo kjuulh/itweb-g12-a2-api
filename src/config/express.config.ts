@@ -14,5 +14,7 @@ export default function() {
   parserConfig(app)
   routesConfig(app)
 
+  app.options('*', cors())
+
   return app
 }

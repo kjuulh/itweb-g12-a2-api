@@ -8,4 +8,5 @@ export const corsOptions = {
       callback(new Error('Not Allowed by CORS'))
     }
   },
+  credentials: true,
 }

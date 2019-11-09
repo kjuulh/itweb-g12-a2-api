@@ -1,7 +1,6 @@
 import { Request, Response } from 'express'
 import { sign as jwtSign } from 'jsonwebtoken'
 import passport = require('passport')
-import Config from '../config/config'
 import { User } from '../models/user.model'
 
 export default class AuthenticationController {
@@ -18,16 +17,13 @@ export default class AuthenticationController {
   }
 
   public authenticate(req: Request, res: Response, next: Function): void {
-    console.log(Config.secret)
+    const secret = '123123123123123123123'
     const { email, password } = req.body
 
     User.findOne({ email })
       .then(user => {
         if (user.validateHash(password)) {
-          const token = jwtSign(
-            { sub: user._id },
-            JSON.parse(Config.secret).secret
-          )
+          const token = jwtSign({ sub: user._id }, secret)
           res.status(200).json({ id: user._id, token })
         } else {
           res.status(400).json({ status: 'incorrect email or password' })

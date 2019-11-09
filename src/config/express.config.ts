@@ -21,7 +21,6 @@ export default function() {
         callback(new Error('Not Allowed by CORS'))
       }
     },
-    credentials: true,
   }
 
   app.use(cors(corsOptions))

@@ -10,6 +10,7 @@ export default function() {
   const originsWhitelist = [
     'http://localhost:4200',
     'https://itweb-g12-a2-app.herokuapp.com',
+    'https://itweb-g12-a2-app.herokuapp.com/',
   ]
 
   const corsOptions = {

@@ -11,5 +11,20 @@ export default function() {
   parserConfig(app)
   routesConfig(app)
 
+  const originsWhitelist = [
+    'http://localhost:4200',
+    'https://itweb-g12-a2-app.herokuapp.com',
+  ]
+
+  const corsOptions = {
+    origin: (origin, callback) => {
+      let isWhitelisted = originsWhitelist.indexOf(origin) !== -1
+      callback(null, isWhitelisted)
+    },
+    credentials: true,
+  }
+
+  app.use(cors(corsOptions))
+
   return app
 }

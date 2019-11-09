@@ -2,7 +2,7 @@ import { Express } from 'express'
 import passport = require('passport')
 import { authController } from '../controllers/auth.server.controller'
 import * as cors from 'cors'
-import { corsOptions } from 'config/cors.constants'
+import { corsOptions } from './../config/cors.constants'
 
 export default class AuthRoutes {
   constructor(app: Express) {

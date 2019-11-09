@@ -10,7 +10,7 @@ export default function() {
 
   app.use(cors(corsOptions))
 
-  let allowCrossDomain = function(req, res, next) {
+  const allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*')
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
     res.header(
@@ -28,11 +28,11 @@ export default function() {
 
   app.use(allowCrossDomain)
 
+  app.options('*', cors())
+
   databaseConfig(app)
   parserConfig(app)
   routesConfig(app)
-
-  app.options('*', cors())
 
   return app
 }

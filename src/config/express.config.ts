@@ -6,7 +6,6 @@ import routesConfig from './routes.config'
 
 export default function() {
   const app: express.Express = express()
-  app.use(cors())
 
   databaseConfig(app)
   parserConfig(app)
